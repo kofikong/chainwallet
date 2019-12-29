@@ -18,11 +18,11 @@ public class LoginInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		String contextPath = session.getServletContext().getContextPath();
 		
-		String[] requireAuthPages = new String[] {"index"};
+		String[] requireAuthPages = new String[] {"/index"};
 		
 		String uri = request.getRequestURI();
 		if(!StringUtils.isBlank(contextPath)) {
-			uri = StringUtils.remove(uri, contextPath+"/");	
+			uri = StringUtils.remove(uri, contextPath);	
 		}
 		
 		
