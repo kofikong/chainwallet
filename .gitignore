@@ -30,5 +30,23 @@ build/
 ### VS Code ###
 .vscode/
 
+### Vue ###
+website/chainwallet-vue/node_modules/
+website/chainwallet-vue/dist/
+website/chainwallet-vue/dist/
+website/chainwallet-vue/npm-debug.log*
+website/chainwallet-vue/yarn-debug.log*
+website/chainwallet-vue/yarn-error.log*
+website/chainwallet-vue/test/unit/coverage/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+
 ### Mac OS ###
 .DS_Store
