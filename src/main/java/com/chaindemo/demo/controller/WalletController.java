@@ -23,13 +23,21 @@ import io.cryptoapis.common_models.ApiResponse;
 import io.cryptoapis.connections.Bitcoin;
 import io.cryptoapis.connections.Bitcoin_Cash;
 import io.cryptoapis.utils.constants.CryptoApisConstants;
+//import org.json.JSONObject;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import net.sf.json.util.JSONUtils;
 
 @RestController
 public class WalletController {
 
-	@RequestMapping("/wallet/create")
-	public JSONObject dealWalletCreate(@RequestParam(value = "walletName", defaultValue = "") String walletName) {
+	private Bitcoin connect(String net) {
+		CryptoApis caClient = new CryptoApis(MyConstants.APIKEY);
+		final Bitcoin btc = caClient.connectToBtc(CryptoApisConstants.MAINNET.equals(net) ? CryptoApisConstants.MAINNET : CryptoApisConstants.TESTNET);
+		return btc;
+	}
+	@RequestMapping(value="/wallet/create",method= RequestMethod.GET)
+	public WalletInfo dealWalletCreate(@RequestParam(value = "walletName", defaultValue = "") String walletName, @RequestParam(value="net", defaultValue="mainnet") String net) {
 
 		if (TextUtils.isEmpty(walletName)) {
 			return null;
@@ -48,9 +56,8 @@ public class WalletController {
 
 		ApiResponse res = ltcWalletService.createWallet(addresses, walletName);
 		String resTmp = res.getResponse();
-		JSONObject obj = JSONObject.fromObject(resTmp);
-		return obj;
-//		return WalletInfo.Parse(resTmp);
+
+		return WalletInfo.Parse(resTmp);
 	}
 	
 	@RequestMapping("/hdwallet/create")
@@ -142,11 +149,7 @@ public class WalletController {
 		return obj;
 		
 		/*
-
-
 		http://localhost:8080/hdwallet/transaction/create?walletName=demoWallet&password=1234567890&address=mmHwSdXoZqKfb71seeY9zRVPFd6nLrK26e&net=testnet
-
-
 		{
 			payload:- {
 			txid: "46e284d0cd76c6cbe26d59e2eccc25c4177fc49490dbbd8fdc04607beab8cc00",
