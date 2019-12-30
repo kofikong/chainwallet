@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// import dev from '../config/dev.env'
 var axios = require('axios')
-axios.defaults.baseURL = 'http://localhost:8443/api'
+axios.defaults.baseURL = process.env.API_ROOT
+axios.defaults.baseURL = ''
 // 全局注册，之后可在其他组件中通过 this.$axios 发送数据
+// axios 默认headers : 'Content-Type': 'application/json;charset=UTF-8'
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 
