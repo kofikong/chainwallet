@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.util.TextUtils;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,12 +20,8 @@ import io.cryptoapis.blockchains.bitcoin_based.services.WalletService;
 import io.cryptoapis.client.CryptoApis;
 import io.cryptoapis.common_models.ApiResponse;
 import io.cryptoapis.connections.Bitcoin;
-import io.cryptoapis.connections.Bitcoin_Cash;
 import io.cryptoapis.utils.constants.CryptoApisConstants;
-//import org.json.JSONObject;
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import net.sf.json.util.JSONUtils;
 
 @RestController
 public class WalletController {
