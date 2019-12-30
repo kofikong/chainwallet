@@ -1,11 +1,18 @@
 package com.chaindemo.demo.model;
 
+import java.io.Serializable;
+
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
-public class WalletInfo {
+public class WalletInfo implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8067850245806162847L;
+
 	public static WalletInfo Parse(String res) {
 		/*
 		{

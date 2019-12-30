@@ -1,10 +1,16 @@
 package com.chaindemo.demo.model;
 
+import java.io.Serializable;
+
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
 
-public class BTCInfo {
+public class BTCInfo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6190233378978531793L;
 	private String difficulty;
 	private String headers;
 	private String chain;

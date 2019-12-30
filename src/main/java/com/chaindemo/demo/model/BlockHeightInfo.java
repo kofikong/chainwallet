@@ -1,5 +1,6 @@
 package com.chaindemo.demo.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +12,13 @@ import net.sf.json.JSONObject;
  *
  * @author kongwenchao
  */
-public class BlockHeightInfo {
+public class BlockHeightInfo implements Serializable{
 
-    private String hash;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1356549931838270125L;
+	private String hash;
     private long strippedsize;
     private long size;
     private long weight;

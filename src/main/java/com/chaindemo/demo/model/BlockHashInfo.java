@@ -1,5 +1,6 @@
 package com.chaindemo.demo.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -10,9 +11,13 @@ import net.sf.json.JSONObject;
  * Auto-generated: 2019-12-23 0:7:10
  * @author Kong.wenchao
  */
-public class BlockHashInfo {
+public class BlockHashInfo implements Serializable{
 
-    private String hash;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3414080897282863365L;
+	private String hash;
     private long strippedsize;
     private long size;
     private long weight;
