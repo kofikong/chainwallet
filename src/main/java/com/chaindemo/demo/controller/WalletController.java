@@ -16,12 +16,13 @@ import io.cryptoapis.client.CryptoApis;
 import io.cryptoapis.common_models.ApiResponse;
 import io.cryptoapis.connections.Bitcoin;
 import io.cryptoapis.utils.constants.CryptoApisConstants;
+import net.sf.json.JSONObject;
 
 @RestController
 public class WalletController {
 
 	@RequestMapping("/wallet/create")
-	public WalletInfo dealWalletCreate(@RequestParam(value = "walletName", defaultValue = "") String walletName) {
+	public JSONObject dealWalletCreate(@RequestParam(value = "walletName", defaultValue = "") String walletName) {
 
 		if (TextUtils.isEmpty(walletName)) {
 			return null;
@@ -42,7 +43,8 @@ public class WalletController {
 
 		ApiResponse res = ltcWalletService.createWallet(addresses, walletName);
 		String resTmp = res.getResponse();
-
-		return WalletInfo.Parse(resTmp);
+		JSONObject obj = JSONObject.fromObject(resTmp);
+		return obj;
+//		return WalletInfo.Parse(resTmp);
 	}
 }
