@@ -1,12 +1,10 @@
 <template>
-    <div>
-      Hello World!
-    </div>
+  <div>Receive!</div>
 </template>
 
 <script>
 export default {
-  name: 'AppIndex'
+  name: 'ReceiveIndex'
 }
 </script>
 

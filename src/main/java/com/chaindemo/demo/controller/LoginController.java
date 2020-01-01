@@ -1,6 +1,7 @@
 package com.chaindemo.demo.controller;
 
-import org.apache.commons.lang3.StringUtils;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ public class LoginController {
 	UserService userService;
 	
 	@RequestMapping(value="/api/login",method= RequestMethod.POST)
-	public Result login(@RequestBody User requestUser) {
+	public Result login(@RequestBody User requestUser,HttpSession session) {
         String username = requestUser != null ? requestUser.getUserName() : "";
         String password = requestUser != null ? requestUser.getPassword() : "";
      // 对 html 标签进行转义，防止 XSS 攻击
@@ -31,6 +32,7 @@ public class LoginController {
             System.out.println("test");
             return new Result(400);
         } else {
+        	session.setAttribute("user", user);
             return new Result(200);
         }
 	}

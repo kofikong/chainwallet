@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		String contextPath = session.getServletContext().getContextPath();
 		
-		String[] requireAuthPages = new String[] {"/index"};
+		String[] requireAuthPages = new String[] {"/wallet"};
 		
 		String uri = request.getRequestURI();
 		if(!StringUtils.isBlank(contextPath)) {
@@ -29,7 +29,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if(isRequireAuthPage(uri,requireAuthPages)) {
 			User user = (User)session.getAttribute("user");
 			if(user == null) {
-				response.sendRedirect("login");
+				response.sendRedirect("wallet");
 				return false;
 			}
 		}
