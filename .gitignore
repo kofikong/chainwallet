@@ -1,0 +1,51 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Vue ###
+website/chainwallet-vue/node_modules/
+website/chainwallet-vue/dist/
+website/chainwallet-vue/dist/
+website/chainwallet-vue/npm-debug.log*
+website/chainwallet-vue/yarn-debug.log*
+website/chainwallet-vue/yarn-error.log*
+website/chainwallet-vue/test/unit/coverage/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+
+### Mac OS ###
+.DS_Store
