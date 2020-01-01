@@ -25,6 +25,7 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+<<<<<<< HEAD
 
 ### VS Code ###
 .vscode/
@@ -46,6 +47,12 @@ website/chainwallet-vue/test/unit/coverage/
 *.njsproj
 *.sln
 
+=======
+build/
+
+### VS Code ###
+.vscode/
+>>>>>>> branch 'master' of https://github.com/kof2005/chainwallet.git
 
 ### Mac OS ###
 .DS_Store
