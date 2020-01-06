@@ -147,10 +147,10 @@ public class AESSecretUtil {
         return result;
     }
 
-    public static void main(String[] args) {
-        String ss = encryptToStr("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIxMjMiLCJ1c2VyTmFtZSI6Ikp1ZHkiLCJleHAiOjE1MzI3Nzk2MjIsIm5iZiI6MTUzMjc3NzgyMn0.sIw_leDZwG0pJ8ty85Iecd_VXjObYutILNEwPUyeVSo", SecretConstant.DATAKEY);
-        System.out.println(ss);
-        System.out.println(decryptToStr(ss, SecretConstant.DATAKEY));
-    }
+//    public static void main(String[] args) {
+//        String ss = encryptToStr("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIxMjMiLCJ1c2VyTmFtZSI6Ikp1ZHkiLCJleHAiOjE1MzI3Nzk2MjIsIm5iZiI6MTUzMjc3NzgyMn0.sIw_leDZwG0pJ8ty85Iecd_VXjObYutILNEwPUyeVSo", SecretConstant.DATAKEY);
+//        System.out.println(ss);
+//        System.out.println(decryptToStr(ss, SecretConstant.DATAKEY));
+//    }
 
 }

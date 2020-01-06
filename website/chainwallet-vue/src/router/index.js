@@ -6,9 +6,20 @@ import Login from '@/components/Login'
 import Home from '../components/Home'
 Vue.use(Router)
 
+// const originalPush = Router.prototype.push
+// Router.prototype.push = function push (location) {
+//   return originalPush.call(this, location).catch(err => err)
+// }
+
 export default new Router({
   mode: 'history',
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'Login',
+    //   redirect: '/wallet',
+    //   component: Home
+    // },
     {
       path: '/home',
       name: 'Home',
@@ -33,6 +44,11 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/login',

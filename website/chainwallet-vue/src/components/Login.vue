@@ -64,14 +64,19 @@ export default {
           userName: this.loginForm.username,
           password: this.loginForm.password
         })
-        .then(successResponse => {
-          if (successResponse.data.code === 200) {
-            _this.$store.commit('login', _this.loginForm)
-            var path = this.$route.query.redirect
-            this.$router.replace({ path: path === '/' || path === undefined ? '/wallet' : path })
+        .then(resp => {
+          if (resp.status === 200) {
+            var data = resp.data.data
+            _this.$store.commit('login', data)
+            _this.$store.commit('token', resp.headers.authorization)
+            var path = _this.$route.query.redirect
+            _this.$router.replace({path: path === '/' || path === undefined ? '/admin/dashboard' : path})
+          } else {
           }
         })
-        .catch(failResponse => {})
+        .catch(failResponse => {
+          console.log(failResponse)
+        })
     }
   }
 }
