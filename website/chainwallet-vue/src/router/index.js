@@ -14,12 +14,12 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Login',
-    //   redirect: '/wallet',
-    //   component: Home
-    // },
+    {
+      path: '/',
+      name: 'Login',
+      redirect: '/wallet',
+      component: Home
+    },
     {
       path: '/home',
       name: 'Home',
@@ -44,11 +44,6 @@ export default new Router({
           }
         }
       ]
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
     },
     {
       path: '/login',

@@ -44,6 +44,7 @@
   }
 </style>
 <script>
+
 export default {
   name: 'Login',
   data () {
@@ -70,7 +71,11 @@ export default {
             _this.$store.commit('login', data)
             _this.$store.commit('token', resp.headers.authorization)
             var path = _this.$route.query.redirect
-            _this.$router.replace({path: path === '/' || path === undefined ? '/admin/dashboard' : path})
+            _this.$router.replace({path: path}, (cc) => {
+              console.log(cc)
+            }, (ee) => {
+              console.log(ee)
+            })
           } else {
           }
         })

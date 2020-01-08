@@ -5,7 +5,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {
-      username: window.localStorage.getItem('user' || '[]') == null ? '' : JSON.parse(window.localStorage.getItem('user' || '[]')).username
+      username: (window.localStorage.getItem('user' || '[]') == null || window.localStorage.getItem('user' || '[]') === undefined || window.localStorage.getItem('user' || '[]') === 'undefined') ? '' : JSON.parse(window.localStorage.getItem('user' || '[]')).username
     },
     auth: {
       token: window.localStorage.getItem('token' || '') == null ? '' : window.localStorage.getItem('token' || '')
@@ -17,7 +17,7 @@ export default new Vuex.Store({
       window.localStorage.setItem('user', JSON.stringify(user))
     },
     token (state, token) {
-      state.auth = token
+      state.auth = {token: token}
       window.localStorage.setItem('token', token)
     }
   }
