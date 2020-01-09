@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,5 +60,15 @@ public class LoginController {
 //        	session.setAttribute("user", user);
 //            return new Result(200);
 //        }
+	}
+	
+	@GetMapping("/api/logout")
+	public ResponseEntity<JSONObject> logout(HttpSession session){
+		session.setAttribute("user", null);
+		
+		HttpHeaders headers = new HttpHeaders();
+        //根据自己的需要动态添加你想要的content type
+        headers.add(HttpHeaders.CONTENT_TYPE,MediaType.APPLICATION_JSON_VALUE);
+		return new ResponseEntity<JSONObject>(null,headers,HttpStatus.OK);
 	}
 }

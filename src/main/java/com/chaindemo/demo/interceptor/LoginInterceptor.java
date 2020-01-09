@@ -5,9 +5,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.chaindemo.demo.model.User;
+import com.chaindemo.demo.utils.JwtHelper;
+
+import io.jsonwebtoken.Claims;
 
 public class LoginInterceptor implements HandlerInterceptor {
 
@@ -15,6 +21,12 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
+		// 放行 options 请求，否则无法让前端带上自定义的 header 信息，导致 sessionID 改变，shiro 验证失败
+        if (HttpMethod.OPTIONS.toString().equals(request.getMethod())) {
+        	response.setStatus(HttpStatus.NO_CONTENT.value());
+            return true;
+        }
+       
 		HttpSession session = request.getSession();
 		String contextPath = session.getServletContext().getContextPath();
 		
@@ -27,11 +39,20 @@ public class LoginInterceptor implements HandlerInterceptor {
 		
 		
 		if(isRequireAuthPage(uri,requireAuthPages)) {
-			User user = (User)session.getAttribute("user");
-			if(user == null) {
-				response.sendRedirect("wallet");
+			String auth = request.getHeader(HttpHeaders.AUTHORIZATION);
+		    if(StringUtils.isEmpty(auth)) {
+		    	response.sendRedirect("login");
 				return false;
-			}
+		    }
+		    
+		    Claims obj = JwtHelper.parseJWT(auth);
+	    	if(obj == null) {
+	    		response.sendRedirect("login");
+				return false;
+	    	}
+	    	else {
+	    		
+	    	}
 		}
 		
 		return true;

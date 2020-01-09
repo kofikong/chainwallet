@@ -71,7 +71,7 @@ export default {
             _this.$store.commit('login', data)
             _this.$store.commit('token', resp.headers.authorization)
             var path = _this.$route.query.redirect
-            _this.$router.replace({path: path}, (cc) => {
+            _this.$router.replace({path: (path === undefined || path == null) ? '/' : path}, (cc) => {
               console.log(cc)
             }, (ee) => {
               console.log(ee)

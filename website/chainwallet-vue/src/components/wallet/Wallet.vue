@@ -14,8 +14,8 @@
         <el-card style="width: 200px;margin-bottom: 20px;height: 233px;float: left;margin-right: 15px" class="book"
                  bodyStyle="padding:10px" shadow="hover">
           <div class="cover">
-            <!-- <img :src="item.cover" alt="封面"> -->
-            <img src='../../assets/btc.jpeg' alt="封面">
+            <img :src="item.cover" alt="封面">
+            <!-- <img src='../../assets/btc.jpeg' alt="封面"> -->
           </div>
           <div class="info">
             <div class="title">
