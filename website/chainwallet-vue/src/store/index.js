@@ -5,25 +5,21 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {
-      username: (window.localStorage.getItem('user' || '[]') == null || window.localStorage.getItem('user' || '[]') === undefined || window.localStorage.getItem('user' || '[]') === 'undefined') ? '' : JSON.parse(window.localStorage.getItem('user' || '[]')).username
+      name: window.localStorage.getItem('user') == null ? '未登录' : JSON.parse(window.localStorage.getItem('user' || '[]')).name,
+      username: window.localStorage.getItem('user') == null ? '' : JSON.parse(window.localStorage.getItem('user' || '[]')).username
     },
-    auth: {
-      token: window.localStorage.getItem('token' || '') == null ? '' : window.localStorage.getItem('token' || '')
-    }
+    adminMenus: []
   },
   mutations: {
-    login (state, user) {
-      state.user = user
-      window.localStorage.setItem('user', JSON.stringify(user))
+    initAdminMenu (state, menus) {
+      state.adminMenus = menus
     },
-    token (state, token) {
-      state.auth = {token: token}
-      window.localStorage.setItem('token', token)
+    login (state, data) {
+      state.user = data
+      window.localStorage.setItem('user', JSON.stringify(data))
     },
     logout (state) {
       state.user = []
-      state.auth = {}
-      window.localStorage.removeItem('token')
       window.localStorage.removeItem('user')
     }
   }
