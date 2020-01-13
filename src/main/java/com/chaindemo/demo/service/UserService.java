@@ -24,7 +24,7 @@ public class UserService {
 		return userDAO.findByUserNameAndPassword(userName, password);
 	}
 	
-	public void add(User user) {
-		userDAO.save(user);
-	}
+	public void addOrUpdate(User user) {
+        userDAO.save(user);
+    }
 }

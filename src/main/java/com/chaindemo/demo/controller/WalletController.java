@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chaindemo.demo.constant.MyConstants;
 import com.chaindemo.demo.model.HDWalletInfo;
 import com.chaindemo.demo.model.WalletInfo;
-import com.chaindemo.demo.utils.MyConstants;
 
 import io.cryptoapis.blockchains.bitcoin_based.models.Transaction.CreateTransaction;
 import io.cryptoapis.blockchains.bitcoin_based.services.TransactionService;

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import WalletsIndex from '@/components/wallet/WalletsIndex'
 import ReceiveIndex from '@/components/receive/ReceiveIndex'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
 import Home from '../components/Home'
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     }
   ]
 })

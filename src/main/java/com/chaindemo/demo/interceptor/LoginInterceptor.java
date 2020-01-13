@@ -37,11 +37,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 			uri = StringUtils.remove(uri, contextPath);	
 		}
 		
-		
 		if(isRequireAuthPage(uri,requireAuthPages)) {
 			String auth = request.getHeader(HttpHeaders.AUTHORIZATION);
 		    if(StringUtils.isEmpty(auth)) {
-		    	response.sendRedirect("login");
+		    	response.sendRedirect("login?redirect="+uri);
 				return false;
 		    }
 		    

@@ -10,6 +10,7 @@
       </el-form-item>
       <el-form-item style="width:100%">
         <el-button type="primary" style="width:100%;backgtroup:#505458;border: none" v-on:click="login">登录</el-button>
+        <router-link to="register"><el-button type="primary" style="width: 40%;background: #505458;border: none">注册</el-button></router-link>
       </el-form-item>
     </el-form>
   </body>
@@ -69,7 +70,6 @@ export default {
           if (resp.status === 200) {
             var data = resp.data.data
             _this.$store.commit('login', data)
-            _this.$store.commit('token', resp.headers.authorization)
             var path = _this.$route.query.redirect
             _this.$router.replace({path: (path === undefined || path == null) ? '/' : path}, (cc) => {
               console.log(cc)

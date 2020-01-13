@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chaindemo.demo.constant.MyConstants;
 import com.chaindemo.demo.model.BTCInfo;
 import com.chaindemo.demo.model.BlockHashInfo;
 import com.chaindemo.demo.model.BlockHeightInfo;
 import com.chaindemo.demo.net.SslUtil;
-import com.chaindemo.demo.utils.MyConstants;
 
 import io.cryptoapis.blockchains.bitcoin_based.services.BlockService;
 import io.cryptoapis.client.CryptoApis;
